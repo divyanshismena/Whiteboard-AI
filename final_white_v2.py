@@ -75,7 +75,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-SERVICE_ACCOUNT_FILE = 'secrets/whiteboard.json'
+SERVICE_ACCOUNT_FILE = 'app_secrets/whiteboard.json'
 
 # llm, client, LOCATION = None, None, None
 

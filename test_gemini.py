@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime
 from langchain_google_genai import ChatGoogleGenerativeAI
-from secrets.gemini import API_KEY
+from app_secrets.gemini import API_KEY
 
 # Initialize Gemini
 llm = ChatGoogleGenerativeAI(

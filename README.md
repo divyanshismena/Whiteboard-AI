@@ -7,7 +7,7 @@ This project provides an API for generating personalized personality assessments
 
 ## Steps for local deployment
 * Clone this repository
-* Unzip the secrets folder shared via email and put the folder in the cloned location
+* Unzip the app_secrets folder shared via email and put the folder in the cloned location
 * Run ```docker-compose up``` in the same location.
 * The containers will automatically be created. Once the processes are completed, frontend will start running [here](http://localhost:8000) and api will be exposed [here](http://localhost:8001/docs)
 

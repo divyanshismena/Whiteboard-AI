@@ -18,7 +18,7 @@ import time
 from datetime import datetime
 import numpy as np
 
-SERVICE_ACCOUNT_FILE = 'secrets/whiteboard.json'
+SERVICE_ACCOUNT_FILE = 'app_secrets/whiteboard.json'
 
 def extract_claude_secrets():
     key_path = SERVICE_ACCOUNT_FILE
