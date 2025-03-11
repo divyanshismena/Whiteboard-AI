@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  streamlit_app:
+    image: whiteboard-streamlit:v1
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8000:8000"
+    command: ["streamlit", "run", "final_white_v2.py", "--server.address", "0.0.0.0", "--server.port", "8000"]
+    depends_on:
+      - api
+
+  api:
+    image: whiteboard-api:v1
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8001:8001"
+    command: ["uvicorn", "main_api:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]

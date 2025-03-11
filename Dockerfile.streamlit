@@ -1,0 +1,17 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY . .
+
+# Install necessary packages including gnupg
+RUN apt-get update && apt-get install -y wget curl unzip gnupg && \
+    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /usr/share/keyrings/google-chrome-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/google-chrome-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update && apt-get install -y google-chrome-stable
+
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt 
+
+EXPOSE 8000
+
+CMD ["streamlit", "run", "final_white_v2.py", "--server.address", "0.0.0.0", "--server.port", "8000"]

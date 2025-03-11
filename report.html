@@ -1,0 +1,254 @@
+<html><head><style>.report-container { padding: 30px; font-family: Arial, sans-serif; line-height: 1.6; }h2 { color: #2c3e50; border-bottom: 2px solid #0066cc; padding-bottom: 10px; margin-top: 40px; }.insights-section { background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; }.stressors-section { margin-top: 30px; }</style></head><body><div class='report-container'><!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Analyst Profile Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chart-container {
+            margin: 20px 0;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .improvements {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .improvements h2 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Financial Analyst Profile Assessment</h1>
+        <div class="chart-container" id="spiderChart"></div>
+        <div class="chart-container" id="strengthsChart"></div>
+        <div class="chart-container" id="weaknessesChart"></div>
+        <div class="improvements">
+            <h2>Areas for Improvement</h2>
+            <ul id="improvementsList"></ul>
+        </div>
+    </div>
+
+<script>
+// Spider Chart Data
+const spiderData = [{
+    type: 'scatterpolar',
+    r: [8.5, 8.0, 8.5, 7.5, 7.0, 8.0, 7.5, 7.0, 7.5, 8.0],
+    theta: ['Achievement', 'Motivation', 'Conscientiousness', 'Assertiveness', 
+            'Extroversion', 'Cooperativeness', 'Competitiveness', 'Patience', 
+            'Self-confidence', 'Openness'],
+    fill: 'toself',
+    name: 'Personality Profile'
+}];
+
+const spiderLayout = {
+    polar: {
+        radialaxis: {
+            visible: true,
+            range: [0, 10]
+        }
+    },
+    showlegend: false,
+    title: 'Personality Traits Assessment'
+};
+
+// Strengths Chart
+const strengthsData = [{
+    x: ['Analytical Skills', 'Risk Assessment', 'Technical Knowledge', 
+        'Decision Making', 'Market Analysis'],
+    y: [9, 8.5, 8.5, 8, 8.5],
+    type: 'bar',
+    marker: {
+        color: '#2ecc71'
+    }
+}];
+
+const strengthsLayout = {
+    title: 'Key Strengths',
+    yaxis: {
+        title: 'Score (0-10)',
+        range: [0, 10]
+    },
+    xaxis: {
+        title: 'Competency Areas'
+    }
+};
+
+// Weaknesses Chart
+const weaknessesData = [{
+    x: ['Risk Tolerance', 'Source Validation', 'Team Management', 
+        'Stakeholder Communication', 'Emotional Management'],
+    y: [6.5, 6, 6.5, 6, 6.5],
+    type: 'bar',
+    marker: {
+        color: '#e74c3c'
+    }
+}];
+
+const weaknessesLayout = {
+    title: 'Areas for Development',
+    yaxis: {
+        title: 'Score (0-10)',
+        range: [0, 10]
+    },
+    xaxis: {
+        title: 'Competency Areas'
+    }
+};
+
+// Plot all charts
+Plotly.newPlot('spiderChart', spiderData, spiderLayout);
+Plotly.newPlot('strengthsChart', strengthsData, strengthsLayout);
+Plotly.newPlot('weaknessesChart', weaknessesData, weaknessesLayout);
+
+// Add improvements to the list
+const improvements = [
+    "Develop broader source validation techniques for financial data",
+    "Enhance stakeholder communication skills, particularly in delivering negative news",
+    "Build stronger team management capabilities",
+    "Improve emotional resilience during high-pressure situations",
+    "Expand risk tolerance assessment methodology"
+];
+
+const improvementsList = document.getElementById('improvementsList');
+improvements.forEach(improvement => {
+    const li = document.createElement('li');
+    li.textContent = improvement;
+    improvementsList.appendChild(li);
+});
+</script>
+</body>
+</html><div class='insights-section'><h2>Key Insights</h2>
+<table style="width:100%; border-collapse: collapse;">
+  <tr>
+    <th style="text-align: left; border: 1px solid black; padding: 8px;">Strengths</th>
+    <th style="text-align: left; border: 1px solid black; padding: 8px;">Potential Challenges</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">Proactive risk management</td>
+    <td style="border: 1px solid black; padding: 8px;">Over-reliance on historical data</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">Strong analytical framework development</td>
+    <td style="border: 1px solid black; padding: 8px;">Subtle communication style may hinder direct feedback</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">Focus on portfolio performance metrics</td>
+    <td style="border: 1px solid black; padding: 8px;">Quick decision-making may lead to oversight</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">Comprehensive macro and micro analysis</td>
+    <td style="border: 1px solid black; padding: 8px;">Potential for stress under high-pressure deadlines</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">Data-driven and action-oriented approach</td>
+    <td style="border: 1px solid black; padding: 8px;">Trusting data sources too quickly</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">Strong quantitative modeling skills</td>
+    <td style="border: 1px solid black; padding: 8px;">Managing large teams may require further development</td>
+  </tr>
+</table>
+</div>
+                            <div class='stressors-section' style='margin: 40px 0;'>
+                                <h2 style='color: #2c3e50; border-bottom: 2px solid #0066cc; padding-bottom: 10px;'>Workplace Stressors Analysis</h2>
+                                <div style='max-width: 800px; margin: 0 auto;'>
+                            
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>Having to work alone</strong></span>
+                                        <span>2/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 40%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>Open discussions</strong></span>
+                                        <span>1/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 20%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>Rigid enforcement of rules</strong></span>
+                                        <span>3/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 60%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>Change in workplace expectations or job duties</strong></span>
+                                        <span>2/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 40%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>A narrowly defined role</strong></span>
+                                        <span>3/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 60%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>Having clear and well articulated goals</strong></span>
+                                        <span>1/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 20%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>Being exposed to frequent conflict</strong></span>
+                                        <span>4/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 80%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                
+                                <div style='margin: 15px 0;'>
+                                    <div style='display: flex; justify-content: space-between; margin-bottom: 5px;'>
+                                        <span><strong>Taking the lead in group settings</strong></span>
+                                        <span>2/5</span>
+                                    </div>
+                                    <div style='background: #f0f0f0; border-radius: 5px; height: 20px;'>
+                                        <div style='background: #0066cc; width: 40%; height: 100%; border-radius: 5px;'></div>
+                                    </div>
+                                </div>
+                                </div></div></div></body></html>
