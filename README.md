@@ -9,11 +9,11 @@ This project provides an API for generating personalized personality assessments
 * Clone this repository
 * Unzip the secrets folder shared via email and put the folder in the cloned location
 * Run ```docker-compose up``` in the same location.
-* The containers will automatically be created. Once the processes are completed, frontend will start running at [here](http://localhost:8000) and api will be exposed [here](http://localhost:8001/docs)
+* The containers will automatically be created. Once the processes are completed, frontend will start running [here](http://localhost:8000) and api will be exposed [here](http://localhost:8001/docs)
 
 ## GCP Deployment links
 * The code is already deployed on a GCP VM.
-* Frontend is running at [here](http://34.166.114.123:8000) and api is exposed [here](http://34.166.114.123:8001/docs)
+* Frontend is running [here](http://34.166.114.123:8000) and api is exposed [here](http://34.166.114.123:8001/docs)
 
 ## API Endpoints Documentations
 
